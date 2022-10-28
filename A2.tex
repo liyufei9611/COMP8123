@@ -1,0 +1,81 @@
+\documentclass{homework}
+
+\title{COMP8123 \quad Assignment 2}
+\author{Li Yufei \quad P-22-0932-2}
+\date{Oct 22 2022}
+\begin{document}
+
+\maketitle
+
+
+\textbf{(1).Half space} Let $f \neq \theta$ be a bounded linear functional on a real normed space $X$. Then for any scalar $c$ we have a hyperplane $H_c=\{x \in X \mid f(x)=c\}$, and $H_c$ determines the two half spaces
+$$
+X_{c_1}=\{x \mid f(x) \le c\} \quad \text { and } \quad X_{c_2}=\{x \mid f(x) \ge c\} .
+$$
+Show that the closed unit ball lies in $X_{c_1}$ where $c=\|f\|$, but for no $\varepsilon>0$, the half space $X_{c_1}$ with $c=\|f\|-\varepsilon$ contains that ball.
+\\
+\\
+\textbf{Proof.} For any $x \in \Tilde{B}(0 ; 1):=\{x \in X \mid\|x\| \leq 1\}$,
+$$
+f(x) \leq\|f\|\|x\|=\|f\| .
+$$
+So, $x \in X_{c 1}$, i.e. the closed ball lies in $X_{c 1}$.
+Since $\|f\|=\sup _{\|x\|=1}|f(x)|$, then for any $\varepsilon>0$, there exist a $x_0$ with $\left\|x_0\right\|=1$ such that
+$$
+|f(x)|>\|f\|-\varepsilon
+$$
+So, for no $\varepsilon>0$, the half space $X_{c 1}$ with $c=\|f\|-\varepsilon$ contains the closed ball.
+\\
+\\
+\textbf{(2).Annihilator} Let $M \neq \varnothing$ be any subset of a normed space $X$. The annibilator $M^a$ of $M$ is defined to be the set of all bounded linear functionals on $X$ which are zero everywhere on $M$. Thus $M^a$ is a subset of the dual space $X^{\prime}$ of $X$. Show that $M^a$ is a vector subspace of $X^{\prime}$ and is closed. What are $X^a$ and $\{\theta\}^a$ ?
+\\
+\\
+\textbf{Proof.} For any scalar $\alpha, \beta$ and $f, g \in M^a$,
+$$
+(\alpha f+\beta g)(x)=\alpha f(x)+\beta g(x)=\alpha \cdot 0+\beta \cdot 0=0, \forall x \in M .
+$$
+Thus, $\alpha f+\beta g \in M^a$. So, $M^a$ is a vector subspace of $X^{\prime}$.
+Let $f \in \overline{M^a}$. Then, there exists a sequence of bounded linear functionals $\left\{f_n\right\} \subset M^a$ such that $\lim_{n \rightarrow+\infty} f_n=f$. 
+\\Therefore, for any $x \in M$,
+$$
+f(x)=\lim _{n \rightarrow+\infty} f_n(x)=\lim _{n \rightarrow+\infty} 0=0 .
+$$
+which yields that $f \in M^a$. So, $M^a$ is closed.
+\\By the definition of annihilator,
+$$
+X^a=\left\{f \in X^{\prime} \mid f(x)=0, \forall x \in X\right\}=\{\theta\} \text {, where } \theta \text { is the zero functional on } X \text {. }
+$$
+$\{0\}^a=\left\{f \in X^{\prime} \mid f(0)=0\right\}=X^{\prime}$, since every bounded linear functional maps $0 \in X$ to be 0 .
+\\
+\\
+\textbf{(3).Minimum property of Fourier coefficients} Let $\left\{e_1, \ldots, e_n\right\}$ be an orthogonal set in an inner product space $X$, where $n$ is fixed. Let $x \in X$ be any fixed element and $y=\beta_1 e_1+\cdots+\beta_n e_n$. Then $\|x-y\|$ depends on $\beta_1, \ldots \beta_n$. Show by direct calculation that $\|x-y\|$ is minimum if and only if $\beta_j=\left\langle x, e_j\right\rangle$, where $j=1, \ldots, n$.
+\\
+\\
+\textbf{Proof.} As any $x \in X$ can be written as $x=\sum_{k=1}^n \left\langle x, e_k\right\rangle $, Thus:
+$$
+x-y=\sum_{k=1}^n\left\langle x, e_k\right\rangle-\sum_{k=1}^n\beta_k e_k=\sum_{k=1}^n(\left\langle x, e_k\right\rangle-\beta_k)e_k
+$$
+To minimize $\|x-y\|$ if and only if $\left\langle x, e_k\right\rangle-\beta_k=0$ for $k=1, \ldots, n$, Hence:
+$$
+\beta_j=\left\langle x,e_j\right\rangle, j=1, \ldots, n
+$$
+\\
+\textbf{(4).}Let $\left(e_k\right)$ be an orthogonal sequence in a Hilbert space $H$. Show that for every $x \in H$, the vector $y=\sum_{k=1}^{\infty}\left\langle x, e_k\right\rangle e_k$ exists in $H$ and $x-y$ is orthogonal to every $e_k$.
+\\
+\\
+\textbf{Proof.} From the Bessel inequality in Theorem $3.4-6$, we see that, for every $x \in H$, the series
+$$
+\sum_{k=1}^{\infty}\left|\left\langle x, e_k\right\rangle\right|^2 \leq\|x\|^2
+$$
+converges. So, $y=\sum_{k=1}^{\infty}\left\langle x, e_k\right\rangle e_k$ exists in $H$. Furthermore,
+$$
+\left\langle x-y, e_j\right\rangle=\left\langle x, e_j\right\rangle-\left\langle\sum_{k=1}^{\infty}\left\langle x, e_k\right\rangle e_k, e_j\right\rangle=0
+$$
+Hence $x-y$ is orthogonal to $e_k$.
+\\
+\\
+\textbf{(5).}Let $\left(e_k\right)$ be an orthonormal sequence in a Hilbert space $H$, and let $M=\operatorname{span}\left(e_k\right)$. Show that for any $x \in H$ we have $x \in \bar{M}$ if and only if $x$ can be represented by $x=\sum_{k=1}^{\infty} \alpha_k e_k$ with coefficients $\alpha_k=\left\langle x, e_k\right\rangle$.
+\\
+\\
+\textbf{Proof.} Assume that $x$ can be represented by $x=\sum_{k=1}^{\infty}\left\langle x, e_k\right\rangle e_k$. Since $x_n=\sum_{k=1}^n\left\langle x, e_k\right\rangle e_k \in M$ and $x_n \rightarrow x$ as $n \rightarrow+\infty$, we have $x \in \bar{M}$. On the other hand, assume $x \in \bar{M}$. Set $y=\sum_{k=1}^{\infty}\left\langle x, e_k\right\rangle e_k$. It follows from question above that $x-y \perp e_k$. By the continuity of inner product, we have $x-y \perp \bar{M}$. It is clear that $x-y \in \bar{M}$. So, $x-y \in \bar{M} \cap \bar{M}^{\perp}=\{0\}$. That is, $x=y=\sum_{k=1}^{\infty}\left\langle x, e_k\right\rangle e_k$.
+\end{document}
