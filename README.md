@@ -1,2 +1,2 @@
-# CUMP8123
+# COMP8123
 MPU COMP8123 Assignment latex code
