@@ -1,0 +1,93 @@
+\documentclass{homework}
+
+\title{COMP8123 \quad Assignment 3}
+\author{Li Yufei \quad P-22-0932-2}
+\date{Oct 30 2022}
+\begin{document}
+\maketitle
+
+
+\textbf{(1).}Let $M=\left\{y_1, \ldots, y_n\right\}$ be a linearly independent set in a Hilbert space $H$. Show that for any subset $\left\{y_k, \ldots, y_m\right\} ($ where $k<m<n)$,
+$$
+\frac{G\left(y_k, \ldots, y_n\right)}{G\left(y_{k+1}, \ldots, y_n\right)} \le \frac{G\left(y_k, \ldots, y_m\right)}{G\left(y_{k+1}, \ldots, y_m\right)} .
+$$
+Why is this geometrically plausible? Show that $\frac{G\left(y_m, \ldots, y_n\right)}{G\left(y_{m+1}, \ldots, y_n\right)} \le G\left(y_m\right)$.
+\\
+\\
+\textbf{Proof.} Consider a subspace, $Y_1=\operatorname{span}\left(y_{k+1}, \ldots, y_n\right)$, suppose $f(\alpha)=\alpha_{k+1} y_{k+1}+\ldots+\alpha_n y_n \in Y_1$ is the best approximation to $y_k \in H$, on the subspace $Y_1$, and the distance of the points is denoted as $\left\|z_1\right\|=\left\|y_k-f(\alpha)\right\|$, then we get
+$$
+\left\langle f(\alpha), z_1\right\rangle=\left\langle f(\alpha), y_k-f(\alpha)\right\rangle=0 .
+$$
+By the theory of distance, $\left\|z_1\right\|$ can be expressed by Gram determinant
+$$
+\left\|z_1\right\|=\left\|y_k-f(\alpha)\right\|^2=\frac{G\left(y_k, y_{k+1}, \ldots, y_n\right)}{G\left(y_{k+1}, \ldots, y_n\right)} .
+$$
+Additionally, since $\left\langle f(\alpha), z_1\right\rangle=0$, we have
+$$
+\left\|z_1\right\|^2=\left\langle z_1, z_1\right\rangle=\left\langle z_1, z_1\right\rangle+\left\langle f(\alpha), z_1\right\rangle=\left\langle y_k, y_k-f(\alpha)\right\rangle=\left\langle y_k, y_k\right\rangle-\left\langle y_k, f(\alpha)\right\rangle.
+$$
+Similarly, let $Y_2=\operatorname{span}\left(y_{k+1}, \ldots, y_m\right)$, suppose $h(\beta)=\beta_{k+1}y_{k+1}+\cdots+\beta_m y_m \in Y_2$, is the best approximation to $y_k \in H$, on the space $Y_2$, denote the distance as $\left\|z_2\right\|=\left\|y_k-h(\beta)\right\|$, and we have
+$$
+\left\langle h(\beta), z_2\right\rangle=\left\langle h(\beta), y_k-h(\beta)\right\rangle=0.
+$$
+By the theory of distance, we obtain
+$$
+\left\|z_2\right\|^2=\left\|y_k-h(\beta)\right\|^2=\frac{G\left(y_k, y_{k+1}, \ldots, y_m\right)}{G\left(y_{k+1}, \ldots, y_m\right)}
+$$
+and
+$$
+\left\|z_2\right\|^2=\left\langle z_1, z_2\right\rangle=\left\langle z_1, z_2\right\rangle+\left\langle h(\beta), z_2\right\rangle=\left\langle y_k, y_k-h(\beta)\right\rangle=\left\langle y_k, y_k\right\rangle-\left\langle y_k, h(\beta)\right\rangle
+$$
+We conclude that
+$$
+\left\|z_2\right\|^2-\left\|z_1\right\|^2=\left\langle y_k, h(\beta)\right\rangle-\left\langle y_k, f(\alpha)\right\rangle=\left\langle y_k, h(\beta)-f(\alpha)\right\rangle \geq 0
+$$
+where
+$$
+\begin{aligned}
+&h(\beta)-f(\alpha)=
+&\left(\beta_{k+1}-\alpha_{k+1}\right) y_{k+1}+\ldots+\left(\beta_m-\alpha_m\right) y_m-\alpha_{m+1} y_{m+1}-\ldots-\alpha_m y_n \in Y_1
+\end{aligned}
+$$
+As for 
+$$
+\begin{aligned}
+\frac{G\left(y_m, \ldots, y_n\right)}{G\left(y_{m+1}, \ldots, y_n\right)} \le G\left(y_m\right), 
+\end{aligned}
+$$
+ suppose $l(\gamma)=\gamma_{m+1}y_{m+1}+\cdots+\gamma_{n}y_n$ is the best approximation to $y_m \in H$, on the subspace $\operatorname{span}\left(y_{k+1}, \ldots, y_m\right)$. Denote the distance as $\left\|z_3\right\|^2=\left\|y_m-l(\gamma)\right\|$, similar to the previous procedures, we have 
+$$
+    \left\|z_3\right\|^2=\frac{G\left(y_m, \ldots, y_n\right)}{G\left(y_{m+1}, \ldots, y_n\right)}, 
+    G\left(y_m \right)=\langle y_m, l\left( \gamma \right) \rangle ,
+$$
+and 
+$$ \left\|z_3\right\|^2 = \langle y_m, y_m\rangle - \langle y_m, l\left( \gamma \right)\rangle, $$
+Thus $ G\left(y_m \right) - \left\|z_3\right\|^2 = \langle y_m, l\left( \gamma \right)\rangle \ge 0$ is hold.  
+\\
+\\
+\textbf{(2).}Let $\left\{y_1, \ldots, y_n\right\}$ be a linearly independent set in a Hilbert space $H$. Show that for $m=1, \ldots, n-1$ we have
+$$
+G\left(y_1 \ldots, y_n\right) \le G\left(y_1, \ldots, y_m\right) G\left(y_{m+1}, \ldots, y_n\right)
+$$
+and the equality sign holds if and only if each element of the set $M_1=\left\{y_1, \ldots, y_m\right\}$ is orthogonal to each element of the set $M_2=\left\{y_{m+1}, \ldots, y_n\right\}$.
+\\
+\\
+\textbf{(3).(Hadamard's determinant theorem)} Show that in Question 2,
+$$
+G\left(y_1 \ldots, y_n\right) \le\left\langle y_1, y_1\right\rangle \cdots\left\langle y_n, y_n\right\rangle
+$$
+and the equality sign holds if and only if all the $y_i$ are mutually orthogonal. Using this, show that the determinant of an $n$-rowed real square matrix $A=\left(a_{j k}\right)$ satisfies
+$$
+(\operatorname{det} A)^2 \le a_1 \cdots a_n \quad \text { where } \quad a_j=\sum_{k=1}^n\left|a_{j k}\right|^2 
+$$
+\\
+\\
+\textbf{(4).}It is known that if $x \in C^2[a, b]$ and $y$ is the cubic spline corresponding to $x$ and a partition $P_n$ of $[a, b]$ and satisfying $y\left(t_j\right)=x\left(t_j\right), y^{\prime}(a)=x^{\prime}(a)$, and $y^{\prime}(b)=x^{\prime}(b)$, then we have
+$$
+\int_a^b x^{\prime \prime}(t)^2 d t \ge \int_a^b y^{\prime \prime}(t)^2 d t .
+$$
+A possible geometric interpretation is that a cubic spline function minimizes the integral of the square of the curvature, at least approximately. Explain.
+
+
+
+\end{document}
