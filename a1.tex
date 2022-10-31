@@ -1,0 +1,91 @@
+
+\documentclass{homework}
+\title{COMP8123 \quad Assignment 1}
+\author{Li Yufei \quad P-22-0932-2}
+\date{Oct 20 2022}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\begin{document}
+\maketitle
+
+\textbf{(1). }Show that the set of all real numbers, with the usual addition and multiplication, constitutes a one-dimensional real vector space, and the set of all complex numbers constitutes a one-dimensional complex vector space.
+\\
+\\
+\textbf{Proof: }The usual addition on $\mathbb{R}$ and $\mathbb{C}$ are commutative and associative, while scalar multiplication on $\mathbb{R}$ and $\mathbb{C}$ are also associative and distributive. 
+For $\mathbb{R}$, the zero vector is {$\theta_{\mathbb{R}}$} = 0 $\in$ $\mathbb{R}$, the identity scalar is {$1_{\mathbb{R}}$} = 1 $\in$ $\mathbb{R}$ and the additive inverse is $-x$ for any $x \in \mathbb{R}$. 
+For $\mathbb{C}$, the zero vector is $\theta_{\mathbb{C}}= 0 + 0i\in$ $\mathbb{C}$ , the identity scalar is $1_{\mathbb{C}}= 1 + 0i\in$ $\mathbb{C}$ and the additive inverse is $-z$ for all $z \in$ $\mathbb{C}$.
+\\
+\\
+\textbf{(2). }Show that in an $n$-dimensional vector space $X$, the representation of any $x$ as a linear combination of given basis vectors $e_1, \ldots, e_n$ is unique.
+\\
+\\
+\textbf{Proof: } Let X is an n-dimensional vector space, with a basis \{{$e_1$},\ldots,{$e_n$}\}. Suppose any $x \in X$ has a representation as a linear combination of the basis vectors, we claim that the representation is unique. Indeed, if $x \in X$ has two representations
+$$
+x = {\alpha_1}{e_n}+\ldots+{\alpha_1}{e_n}={\beta_1}{e_1}+\ldots+{\beta_n}{e_n}.
+$$
+subtracting them gives
+$$
+({\alpha_j}-{\beta_j}){e_1}+...+({\alpha_n}-{\beta_n}){e_n}=\sum_{n}^{j=1}({\alpha_j}-{\beta_j}){e_j}=0.
+$$
+Since \{{$e_1$},\ldots,{$e_n$}\}is a basis of $X$, by definition it is linearly independent, which implies that $\alpha_j-\beta_j = 0$ for all $j = 1,\ldots,n,$ i.e., the representation is unique.
+\\
+\\
+\textbf{(3). }Show that the Cartesian product $X=X_1 \times X_2$ of two vector spaces over the same field becomes a vector space if we define the two algebraic operations by
+$$
+\begin{aligned}
+\left(x_1, x_2\right)+\left(y_1, y_2\right) &=\left(x_1+y_1, x_2+y_2\right) \\
+\alpha\left(x_1, x_2\right) &=\left(\alpha x_1, \alpha x_2\right) .
+\end{aligned}
+$$
+\\
+\textbf{Proof: } We first verify vector addition:
+\\
+\begin{align*}
+    ({x_1},{x_2})+({y_1},{y_2})&=({x_1}+{y_1},{x_2}+{y_2})\\
+    &= ({y_1}+{x_1},{y_2}+{x_2})\\
+    &= ({y_1},{y_1})+({x_1},{x_2})\\
+    ({x_1},{x_2})+[({y_1},{y_2})+({z_1},{z_2})]&=\Big(({x_1}+({y_1}+{z_1}),{x_2}+({y_2}+{z_2})\Big)\\
+    &=\Big(({x_1}+{y_1})+{z_1},({x_2}+{y_2})+{z_2})\Big)\\
+    &=({x_1}+{y_1},{x_2}+{y_2})+({z_1},{z_2})\\
+    &=\Big[(({x_1},{x_2})+({y_1},{y_2})\Big]+({z_1},{z_2})\\
+    ({x_1},{x_2})&=({x_1}+0,{x_2}+0)\\
+    &=({x_1},{x_2})+(0,0)\\
+    (0,0)&=({x_1}+({-x_1}),{y_1}+(-{y_1}))\\
+    &=({x_1},{y_1})+(-{x_1},-{y_1})\\
+\end{align*}
+Next, we verify scalar vector multiplication:
+\begin{align*}
+    ({x_1},{x_2})&=({1_k}{x_1},{1_k}{x_2})\\
+    &={1_k}({x_1}{x_2})
+\end{align*}
+\begin{align*}
+    \alpha\Big[\beta({x_1},{x_2})\Big]&=\alpha(\beta{x_1},\beta{x_2})\\
+    &=\Big(\alpha(\beta({x_1}),\alpha(\beta{x_2})\Big)\\
+    &=\Big((\alpha\beta){x_1},(\alpha\beta){x_2})\Big)\\
+    &=(\alpha\beta)({x_1},{x_2})\\
+    \alpha\Big[({x_1},{x_2})+({y_1,y_2})\Big]&=\alpha({x_1}+{y_1},{x_2}+{y_2})\\
+    &=\Big(\alpha({x_1}+{y_1}),\alpha({x_2}+{y_2})\Big)\\
+    &=(\alpha{x_1}+\alpha{y_1},\alpha{x_2}+\alpha{y_2})\\
+    &=(\alpha{x_1},\alpha{y_1})+(\alpha{x_2}+\alpha{y_2})\\
+    &=\alpha({x_1},{y_1})+\alpha({x_2},{y_2})\\
+    (\alpha+\beta)({x_1,x_2})&=\Big((\alpha+\beta){x_1},(\alpha+\beta){x_2}\Big)\\
+    &=(\alpha{x_1}+\beta{x_1},\alpha{x_2}+\beta{x_2})\\
+    &=(\alpha{x_1},\alpha{x_2})+(\beta{x_1},\beta{x_2})\\
+    &=\alpha({x_1},{x_2})+\beta({x_1},{x_2})\\
+\end{align*}
+\\
+\textbf{(4). }For the space $\ell^p(p>1)$ of infinite sequences $x=\left(\xi_1, \xi_2, \ldots\right)$, show that $\|x\|=\left(\sum_{j=1}^{\infty}\left|\xi_j\right|^p\right)^{\frac{1}{p}}$ defines a norm.
+\\
+\textbf{Proof: } 
+\textbf{(N1)} to \textbf{(N3)} are obvious.\textbf{(N4)} follows from \textbf{Minkowski inequality for sums.} More precisely, for $x =(\xi_j)$ and $y=(\eta_j)$,
+$$
+\|x+y\|=\Bigg(\sum_{j=1}^{\infty}|\xi_j+\eta_j|^p\Bigg)^\frac{1}{p}
+\leq
+\Bigg(\sum_{k=1}^{\infty}|\xi_k|^p\Bigg)^\frac{1}{p} + \Bigg(\sum_{m=1}^{\infty}|\eta_m|^p\Bigg)^\frac{1}{p}
+$$
+where $ \|x\| = \left(\sum_{k=1}^{\infty}|\xi_k|^p\right)^\frac{1}{p}$ and $ \|y\| = \left(\sum_{m=1}^{\infty}|\eta_m|^p\right)^\frac{1}{p}$.
+\\
+\\
+\end{document}
